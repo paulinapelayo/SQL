@@ -1,0 +1,28 @@
+--Create a grocery store database
+
+CREATE TABLE perfumes (id INTEGER PRIMARY KEY, scent TEXT, price INTEGER, sizefl INTEGER, brand TEXT);
+
+INSERT INTO perfumes VALUES (1, "vanilla dream", 55, 3.3, "YSL");
+INSERT INTO perfumes VALUES (2, "candy fever", 45, 3.0, "Chanel");
+INSERT INTO perfumes VALUES (3, "cherry cola", 60, 3.3, "Tom Ford");
+INSERT INTO perfumes VALUES (4, "pretty peach", 50, 2.0, "Kilian");
+INSERT INTO perfumes VALUES (5, "under the stars", 50, 3.3, "YSL");
+INSERT INTO perfumes VALUES (6, "vanillian", 70, 3.3, "Tom Ford");
+INSERT INTO perfumes VALUES (7, "dream", 40, 3.3, "Dior");
+INSERT INTO perfumes VALUES (8, "coffee break", 70, 3.3, "Margiela");
+INSERT INTO perfumes VALUES (9, "floral affairs", 80, 3.3, "Dior");
+INSERT INTO perfumes VALUES (10, "walking", 40, 1.3, "Clean");
+INSERT INTO perfumes VALUES (11, "lilaclady", 60, 3.3, "Marc Jacobs");
+INSERT INTO perfumes VALUES (12, "pistachio gelato", 45, 3.3, "Kilian");
+INSERT INTO perfumes VALUES (13, "fluffy", 50, 3.3, "Dior");
+INSERT INTO perfumes VALUES (14, "under the ice", 45, 3.3, "Chanel");
+INSERT INTO perfumes VALUES (15, "fields", 50, 3.3, "Clean");
+
+--Items ordered by price
+SELECT * FROM perfumes ORDER BY price;
+
+--Display scents ordered by the brand
+SELECT scent, brand FROM perfumes ORDER BY brand;
+
+-- Display the most expensive scent and its brand.
+SELECT scent, brand, MAX(price) FROM perfumes;
