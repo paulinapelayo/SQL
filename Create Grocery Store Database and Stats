@@ -24,5 +24,5 @@ SELECT * FROM perfumes ORDER BY price;
 --Display scents ordered by the brand
 SELECT scent, brand FROM perfumes ORDER BY brand;
 
--- Display the most expensive scent and its brand.
+--Display the most expensive scent and its brand.
 SELECT scent, brand, MAX(price) FROM perfumes;
