@@ -1,43 +1,47 @@
-Order items by price.
+
+
+
+
+#1. Order items by price.
 SELECT item_name, price
 FROM superstore
 GROUP BY item_name
 ORDER BY price desc;
 
-What is the total number of items in the supermarket?
+#2. What is the total number of items in the supermarket?
 SELECT COUNT(*) AS total_items
 FROM superstore;
 
-What is the average price of all items in the supermarket?
+#3. What is the average price of all items in the supermarket?
 SELECT AVG(price) AS avg_price 
 FROM superstore;
 
-What is the most expensive item among all items?
+#4. What is the most expensive item among all items?
 SELECT item_name, MAX(price) as most_expensive
 FROM superstore
 ORDER BY item_name
 LIMIT 1;
 
-What is the lowest stock quantity among all items?
+#5. What is the lowest stock quantity among all items?
 SELECT * , MIN(stock_quantity) as lowest_stock_item
 FROM superstore;
 
-What is the total value of all items in stock?
+#6. What is the total value of all items in stock?
 SELECT SUM(price) AS total_value
 FROM superstore;
 
-What is the average rating of items in each category?
+#7. What is the average rating of items in each category?
 SELECT category, AVG(average_rating) as avgrating
 FROM superstore
 GROUP BY category;
 
-What are the top 10 items with the highest prices?
+#8. What are the top 10 items with the highest prices?
 SELECT *
 FROM superstore
 ORDER BY price desc
 LIMIT 10;
 
-What is the average price for items in the "Kitchen Supplies" category?
+#8. What is the average price for items in the "Kitchen Supplies" category?
 SELECT category, price, AVG(price) as avg_price
 FROM superstore
 WHERE category = 'Kitchen Supplies';
