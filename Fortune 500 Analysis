@@ -1,0 +1,55 @@
+For this project, I will use a database that has fake Fortune 500 data in it to answer questions based on what I would like to know before working there.
+
+#1. List the companies that provide healthcare benefits and with more than 8 weeks of maternity leave that are in Technology or Retail.
+SELECT company_name,  
+maternity_leave_weeks AS MLW, 
+industry
+FROM fortune_companies
+WHERE healthcare_benefits = 1
+  AND MLW >= 8
+  AND (industry = "Retail" 
+  OR industry = "Technology")
+ORDER BY MLW asc;
+
+#2 Provide the average revenue per industry
+SELECT industry, ROUND(AVG(revenue), 2) AS avg_rev
+FROM fortune_companies
+GROUP BY industry;
+
+#3 List the companies that have less than 2000 employees and provide healthcare benefits
+SELECT company_name, employees
+FROM fortune_companies
+WHERE employees <= 2000
+  AND healthcare_benefits = 1;
+
+#4 List the companies that provide more than 20 paid days off and more than 8 weeks of maternity leave within the Technology, Retail, or Finance industry.
+SELECT industry, 
+paid_time_off_days AS paid_days_off,
+maternity_leave_weeks AS mlw
+FROM fortune_companies
+WHERE (industry = "Technology"
+  OR industry = "Retail"
+  OR industry = "Finance")
+  AND paid_days_off >= 20
+  AND mlw >= 8;
+
+#5 Provide the average employee tenure for each industry
+SELECT industry, 
+ROUND(AVG(avg_employee_tenure), 2) AS avg_employee_tenure
+FROM fortune_companies
+GROUP BY industry;
+
+#6 Order each company's maternity leave weeks as: less than 8 weeks "low mlw", less than 12 weeks "med mlw", less than 16 weeks "high mlw".
+SELECT company_name, 
+maternity_leave_weeks,
+  CASE
+    WHEN maternity_leave_weeks<=8 THEN 'Low mlw'
+    WHEN maternity_leave_weeks<=12 THEN 'Med mlw'
+    WHEN maternity_leave_weeks<=16 THEN 'High mlw'
+  END AS 'mlw_level'
+FROM fortune_companies
+ORDER BY maternity_leave_weeks DESC;
+
+
+
+
