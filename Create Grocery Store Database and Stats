@@ -19,10 +19,15 @@ INSERT INTO perfumes VALUES (14, "under the ice", 45, 3.3, "Chanel");
 INSERT INTO perfumes VALUES (15, "fields", 50, 3.3, "Clean");
 
 --Items ordered by price
-SELECT * FROM perfumes ORDER BY price;
+SELECT * 
+FROM perfumes 
+ORDER BY price;
 
 --Display scents ordered by the brand
-SELECT scent, brand FROM perfumes ORDER BY brand;
+SELECT scent, brand 
+FROM perfumes 
+ORDER BY brand;
 
 --Display the most expensive scent and its brand.
-SELECT scent, brand, MAX(price) FROM perfumes;
+SELECT scent, brand, MAX(price) 
+FROM perfumes;
