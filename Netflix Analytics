@@ -1,16 +1,16 @@
 #In this SQL code, I'm querying a database that's holding Nexflix data to answer questions about the data. 
 
 #1. How many movie titles are there in the database? (movies only, not tv shows) 
-select count(*) 
+SELECT COUNT(*) 
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
 WHERE type='Movie';
 
 #2. When was the most recent batch of tv shows and/or movies added to the database? 
-select max(date(date_added))
+SELECT MAX(date(date_added))
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
 
 #3. List all the movies and tv shows in alphabetical order. 
-select title
+SELECT title
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
 ORDER BY title asc;
 
